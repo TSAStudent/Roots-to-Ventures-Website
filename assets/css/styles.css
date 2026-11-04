@@ -530,3 +530,4 @@ html.static .hero-slide { transition: none !important; }
 .check-list li span b { color: inherit; font-weight: 600; }
 .light .check-list li span b { color: var(--ink); }
 @media (max-width: 640px) { .card-img .overlay { background: linear-gradient(to top, rgba(6,17,13,0.98) 0%, rgba(6,17,13,0.94) 60%, rgba(6,17,13,0.4) 100%); } }
+.card-img p { color: rgba(246,241,231,0.92); }
