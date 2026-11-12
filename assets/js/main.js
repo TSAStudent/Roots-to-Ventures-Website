@@ -73,7 +73,7 @@
     const gap = () => parseFloat(getComputedStyle(track).gap) || 0;
     const offset = idx => -(idx * (slides[0].getBoundingClientRect().width + gap()));
     const render = anim => {
-      track.classList.toggle('no-anim', !anim);
+      track.classList.toggle('no-anim', !anim || reduced);
       track.style.transform = `translate3d(${offset(i)}px,0,0)`;
       const real = (i - 1 + n) % n;
       dots.forEach((d, k) => d.classList.toggle('active', k === real));
@@ -87,9 +87,7 @@
       if (i === n + 1) { i = 1; render(false); }
       else if (i === 0) { i = n; render(false); }
     });
-    const restart = () => { clearInterval(timer); if (!reduced && !location.search.includes('static')) timer = setInterval(() => go(i + 1), interval); };
-    root.addEventListener('mouseenter', () => clearInterval(timer));
-    root.addEventListener('mouseleave', restart);
+    const restart = () => { clearInterval(timer); if (!location.search.includes('static')) timer = setInterval(() => go(i + 1), interval); };
     let sx = 0;
     root.addEventListener('touchstart', e => { sx = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
     root.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); restart(); });
