@@ -48,34 +48,54 @@
 
   /* ---------- Hero rotator ---------- */
   $$('[data-rotator]').forEach(root => {
-    const slides = $$('.hero-slide', root);
-    const dotsWrap = $('.hero-dots', root.closest('.hero') || document);
-    const caption = $('.hero-caption[data-caption]', root.closest('.hero') || document);
-    const interval = Number(root.dataset.interval || 5000);
-    if (!slides.length) return;
-    root.closest('.hero')?.style.setProperty('--slide-ms', interval + 'ms');
-    let i = 0, timer;
-    const dots = slides.map((_, idx) => {
+    // Zenith-style carousel: slides translate horizontally with a gutter,
+    // next slide peeks on the right, looping via cloned edge slides.
+    const track = $('.carousel-track', root);
+    const originals = $$('.hero-slide', track || root);
+    const dotsWrap = $('.hero-dots', root);
+    const interval = Number(root.dataset.interval || 7000);
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!track || originals.length < 2) return;
+    const n = originals.length;
+    originals.forEach(s => { if (s.dataset.src) s.style.backgroundImage = `url("${s.dataset.src}")`; });
+    const firstClone = originals[0].cloneNode(true), lastClone = originals[n - 1].cloneNode(true);
+    firstClone.setAttribute('aria-hidden', 'true'); lastClone.setAttribute('aria-hidden', 'true');
+    track.appendChild(firstClone); track.insertBefore(lastClone, originals[0]);
+    const slides = $$('.hero-slide', track);
+    let i = 1, timer, animating = false;
+    const dots = originals.map((_, k) => {
       const b = document.createElement('button');
-      b.setAttribute('aria-label', `Show image ${idx + 1}`);
-      b.addEventListener('click', () => { go(idx); restart(); });
-      dotsWrap?.appendChild(b);
+      b.type = 'button'; b.setAttribute('aria-label', `Slide ${k + 1}`);
+      b.addEventListener('click', () => { go(k + 1); restart(); });
+      if (dotsWrap) dotsWrap.appendChild(b);
       return b;
     });
-    const go = n => {
-      slides[i].classList.remove('active'); dots[i]?.classList.remove('active');
-      i = (n + slides.length) % slides.length;
-      slides[i].classList.add('active');
-      if (dots[i]) { dots[i].classList.remove('active'); void dots[i].offsetWidth; dots[i].classList.add('active'); }
-      if (caption) caption.textContent = slides[i].dataset.caption || '';
-      // preload next
-      const next = slides[(i + 1) % slides.length];
-      if (next.dataset.src && !next.style.backgroundImage) next.style.backgroundImage = `url("${next.dataset.src}")`;
+    const gap = () => parseFloat(getComputedStyle(track).gap) || 0;
+    const offset = idx => -(idx * (slides[0].getBoundingClientRect().width + gap()));
+    const render = anim => {
+      track.classList.toggle('no-anim', !anim);
+      track.style.transform = `translate3d(${offset(i)}px,0,0)`;
+      const real = (i - 1 + n) % n;
+      dots.forEach((d, k) => d.classList.toggle('active', k === real));
+      slides.forEach((s, k) => s.classList.toggle('active', k === i));
+      if (!anim) { void track.offsetWidth; track.classList.remove('no-anim'); animating = false; }
     };
-    slides.forEach((s, idx) => { if (idx < 2 && s.dataset.src) s.style.backgroundImage = `url("${s.dataset.src}")`; });
-    const restart = () => { clearInterval(timer); if (!reduced) timer = setInterval(() => go(i + 1), interval); };
-    go(0); restart();
-    document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : restart());
+    const go = idx => { if (animating || location.search.includes('static')) return; animating = true; i = idx; render(true); };
+    track.addEventListener('transitionend', e => {
+      if (e.target !== track) return;
+      animating = false;
+      if (i === n + 1) { i = 1; render(false); }
+      else if (i === 0) { i = n; render(false); }
+    });
+    const restart = () => { clearInterval(timer); if (!reduced && !location.search.includes('static')) timer = setInterval(() => go(i + 1), interval); };
+    root.addEventListener('mouseenter', () => clearInterval(timer));
+    root.addEventListener('mouseleave', restart);
+    let sx = 0;
+    root.addEventListener('touchstart', e => { sx = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
+    root.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); restart(); });
+    addEventListener('resize', () => render(false));
+    render(false);
+    restart();
   });
 
   /* ---------- Reveal on scroll ---------- */
