@@ -181,7 +181,6 @@
 
   /* ---------- Venture.bot demo ---------- */
   const KB = [
-    { k: ['hello', 'hi', 'hey'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've been trained on every mentor session from the bootcamp. Want to start with your <b>problem statement</b>, your <b>finances</b>, or your <b>pitch</b>?" },
     { k: ['problem', 'idea', 'ideation', 'solution'], r: "Let's use the <b>Problem → Solution → Value</b> framework from Day 1. First: who has this problem, how often, and what do they do about it today? Tell me the problem in one sentence and I'll pressure-test it." },
     { k: ['customer', 'persona', 'audience', 'target'], r: "Great, customer clarity is where most Day 1 teams got stuck. Try the <b>STP</b> lens: Segment the market, Target one group you can reach this month, then Position your offer against what they use now. Who is the single most painful-to-ignore customer?" },
     { k: ['price', 'pricing', 'cost', 'finance', 'financial', 'burn', 'runway', 'revenue', 'profit', 'money'], r: "From Ross Gillispie's Day 2 session: split your costs into <b>fixed</b> (rent, software) and <b>variable</b> (per-unit). Then: Revenue − Costs = Profit, and Cash ÷ Monthly Burn = <b>Runway</b>. Give me your monthly costs and price and I'll compute your break-even." },
@@ -191,6 +190,7 @@
     { k: ['immigrant', 'visa', 'family', 'background', 'first-gen', 'first gen'], r: "Your background is an asset, not a footnote. Founders who've navigated a new country spot gaps others miss. Mr. Saxena said it best at Demo Day: he went from <b>nothing → something → everything</b>. Let's turn that lived experience into your unfair advantage." },
     { k: ['module', 'lesson', 'learn', 'course', 'curriculum'], r: "There are <b>16 modules</b>: from problem identification and business models through financial modeling, marketing, and investor relations. Each has a video, a guided reading, and a quiz. Want me to recommend where to start?" },
     { k: ['thank', 'thanks'], r: "Anytime. That's what co-founders are for. Keep building — I'll be here between sessions." },
+    { k: ['hello', 'hi', 'hey'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've been trained on every mentor session from the bootcamp. Want to start with your <b>problem statement</b>, your <b>finances</b>, or your <b>pitch</b>?" },
   ];
   const FALLBACK = [
     "Interesting. Let's sharpen it: who feels this most, and what would they pay to make it go away?",
@@ -208,7 +208,7 @@
     const reply = text => {
       const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop = body.scrollHeight;
       const low = text.toLowerCase();
-      const has = k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:e?s)?(?![a-z0-9])`).test(low);
+      const has = k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}${k.length > 3 ? '(?:e?s)?' : ''}(?![a-z0-9])`).test(low);
       const hit = KB.find(e => e.k.some(has));
       const r = hit ? hit.r : FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
       setTimeout(() => { t.remove(); add(r, 'bot'); }, 900 + Math.min(1400, r.length * 6));
