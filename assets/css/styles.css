@@ -468,7 +468,6 @@ html.static .carousel-track { transition: none !important; }
   .reveal, .reveal-words .w span { transition: none; opacity: 1; transform: none; }
   .marquee-track { animation: none; }
 }
-.glow-cursor { display: none; }
 .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--orange); z-index: 60; }
 .scroll-cue { display: none; }
 

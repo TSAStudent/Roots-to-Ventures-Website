@@ -37,15 +37,6 @@
     if (href === path || (path === '' && href === 'index.html')) a.classList.add('active');
   });
 
-  /* ---------- Cursor glow ---------- */
-  const glow = $('.glow-cursor');
-  if (glow && !reduced) {
-    let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
-    window.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-    const tick = () => { x += (tx - x) * 0.12; y += (ty - y) * 0.12; glow.style.transform = `translate(${x - 250}px, ${y - 250}px)`; requestAnimationFrame(tick); };
-    tick();
-  }
-
   /* ---------- Hero rotator ---------- */
   $$('[data-rotator]').forEach(root => {
     // Zenith-style carousel: slides translate horizontally with a gutter,
