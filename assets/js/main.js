@@ -190,7 +190,7 @@
 
   /* ---------- Venture.bot demo ---------- */
   const KB = [
-    { k: ['hello', 'hi', 'hey', 'start'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've been trained on every mentor session from the bootcamp. Want to start with your <b>problem statement</b>, your <b>finances</b>, or your <b>pitch</b>?" },
+    { k: ['hello', 'hi', 'hey'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've been trained on every mentor session from the bootcamp. Want to start with your <b>problem statement</b>, your <b>finances</b>, or your <b>pitch</b>?" },
     { k: ['problem', 'idea', 'ideation', 'solution'], r: "Let's use the <b>Problem → Solution → Value</b> framework from Day 1. First: who has this problem, how often, and what do they do about it today? Tell me the problem in one sentence and I'll pressure-test it." },
     { k: ['customer', 'persona', 'audience', 'target'], r: "Great, customer clarity is where most Day 1 teams got stuck. Try the <b>STP</b> lens: Segment the market, Target one group you can reach this month, then Position your offer against what they use now. Who is the single most painful-to-ignore customer?" },
     { k: ['price', 'pricing', 'cost', 'finance', 'financial', 'burn', 'runway', 'revenue', 'profit', 'money'], r: "From Ross Gillispie's Day 2 session: split your costs into <b>fixed</b> (rent, software) and <b>variable</b> (per-unit). Then: Revenue − Costs = Profit, and Cash ÷ Monthly Burn = <b>Runway</b>. Give me your monthly costs and price and I'll compute your break-even." },
