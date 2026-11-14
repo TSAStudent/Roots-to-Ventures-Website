@@ -80,12 +80,22 @@
       slides.forEach((s, k) => s.classList.toggle('active', k === i));
       if (!anim) { void track.offsetWidth; track.classList.remove('no-anim'); animating = false; }
     };
-    const go = idx => { if (animating || location.search.includes('static')) return; animating = true; i = idx; render(true); };
-    track.addEventListener('transitionend', e => {
-      if (e.target !== track) return;
+    const settle = () => {
       animating = false;
       if (i === n + 1) { i = 1; render(false); }
       else if (i === 0) { i = n; render(false); }
+    };
+    let settleTimer;
+    const go = idx => {
+      if (animating || idx === i || location.search.includes('static')) return;
+      i = idx;
+      if (reduced) { render(false); settle(); return; }
+      animating = true; render(true);
+      clearTimeout(settleTimer); settleTimer = setTimeout(() => { if (animating) settle(); }, 900);
+    };
+    track.addEventListener('transitionend', e => {
+      if (e.target !== track || !animating) return;
+      clearTimeout(settleTimer); settle();
     });
     const restart = () => { clearInterval(timer); if (!location.search.includes('static')) timer = setInterval(() => go(i + 1), interval); };
     let sx = 0;
