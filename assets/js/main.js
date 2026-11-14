@@ -208,7 +208,7 @@
     const reply = text => {
       const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop = body.scrollHeight;
       const low = text.toLowerCase();
-      const has = k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z0-9])`).test(low);
+      const has = k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:e?s)?(?![a-z0-9])`).test(low);
       const hit = KB.find(e => e.k.some(has));
       const r = hit ? hit.r : FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
       setTimeout(() => { t.remove(); add(r, 'bot'); }, 900 + Math.min(1400, r.length * 6));
