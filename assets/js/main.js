@@ -173,11 +173,13 @@
       if (t.dataset.tab) history.replaceState(null, '', '#' + t.dataset.tab);
     }));
   });
-  {
+  const openTabFromHash = () => {
     const h = location.hash.slice(1);
     const t = h && $(`.tab[data-tab="${h}"]`);
     if (t) t.click();
-  }
+  };
+  openTabFromHash();
+  addEventListener('hashchange', openTabFromHash);
 
   /* ---------- Venture.bot demo ---------- */
   const KB = [
