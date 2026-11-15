@@ -173,11 +173,13 @@
       if (t.dataset.tab) history.replaceState(null, '', '#' + t.dataset.tab);
     }));
   });
-  {
+  const openTabFromHash = () => {
     const h = location.hash.slice(1);
     const t = h && $(`.tab[data-tab="${h}"]`);
     if (t) t.click();
-  }
+  };
+  openTabFromHash();
+  addEventListener('hashchange', openTabFromHash);
 
   /* ---------- Venture.bot demo ---------- */
   const KB = [
@@ -232,6 +234,7 @@
   /* ---------- Forms ---------- */
   $$('form[data-demo-form]').forEach(f => f.addEventListener('submit', e => {
     e.preventDefault();
+    if (!f.reportValidity()) return;
     const ok = $(f.dataset.demoForm);
     f.style.display = 'none'; ok?.classList.add('show'); ok?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }));
