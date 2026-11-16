@@ -209,7 +209,7 @@
     const formatReply = text => {
       let html = '', inList = false;
       text.split(/\r?\n/).forEach(line => {
-        const item = line.match(/^(?:- |1\. )(.*)$/);
+        const item = line.match(/^(?:- |\d+\. )(.*)$/);
         if (item) {
           if (!inList) { html += '<ul>'; inList = true; }
           html += `<li>${escapeHTML(item[1]).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;

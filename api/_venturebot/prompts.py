@@ -85,7 +85,7 @@ Grade these six categories:
 Rules:
 - Judge only what is written. Don't reward ideas the student didn't state. Empty or nonsense answers score 1-2 in the categories that depend on them.
 - Comments must reference the student's actual content (their customer, numbers, channels), not generic advice.
-- "highlights": pick 3-5 short phrases quoted EXACTLY (verbatim, 3-20 words) from the student's answers. Mark each one as a "strength" or a "weakness" and add a one-sentence comment, like a line-by-line essay comment. Use the question id the quote came from.
+- "highlights": pick 3-5 short phrases quoted EXACTLY (verbatim, 3-20 words) from the student's answers. Mark each one as a "strength" or a "weakness" (include at least one of each when the answers allow) and add a one-sentence comment, like a line-by-line essay comment. Use the question id the quote came from.
 - "overall_feedback": 2-3 sentences on the plan as a whole.
 - "brutally_honest": 2-3 sentences with no sugarcoating about the biggest weakness a judge or investor would notice. Be blunt but respectful; you're talking to a teenager.
 - "strengths": 2-3 short bullet-style strings.
