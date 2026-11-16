@@ -1,6 +1,6 @@
-# Root to Ventures — Website
+# Roots to Ventures — Website
 
-Static marketing site for **Root to Ventures**, a free entrepreneurship bootcamp for immigrant high school students in Dallas–Fort Worth, and **Venture.bot**, its AI co-founder platform.
+Static marketing site for **Roots to Ventures**, a free entrepreneurship program for first-generation immigrant high school students in Dallas–Fort Worth, and **Venture.bot**, its AI co-founder platform.
 
 ## Pages
 

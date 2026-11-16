@@ -1,4 +1,4 @@
-/* Root to Ventures — shared interactions */
+/* Roots to Ventures — shared interactions */
 (() => {
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
@@ -183,16 +183,16 @@
 
   /* ---------- Venture.bot demo ---------- */
   const KB = [
-    { k: ['problem', 'idea', 'ideation', 'solution'], r: "Let's use the <b>Problem → Solution → Value</b> framework from Day 1. First: who has this problem, how often, and what do they do about it today? Tell me the problem in one sentence and I'll pressure-test it." },
-    { k: ['customer', 'persona', 'audience', 'target'], r: "Great, customer clarity is where most Day 1 teams got stuck. Try the <b>STP</b> lens: Segment the market, Target one group you can reach this month, then Position your offer against what they use now. Who is the single most painful-to-ignore customer?" },
-    { k: ['price', 'pricing', 'cost', 'finance', 'financial', 'burn', 'runway', 'revenue', 'profit', 'money'], r: "From Ross Gillispie's Day 2 session: split your costs into <b>fixed</b> (rent, software) and <b>variable</b> (per-unit). Then: Revenue − Costs = Profit, and Cash ÷ Monthly Burn = <b>Runway</b>. Give me your monthly costs and price and I'll compute your break-even." },
-    { k: ['market', 'marketing', '4p', '4ps', 'promotion', 'go-to-market', 'gtm'], r: "Let's build a go-to-market with the <b>4 Ps</b>: Product, Price, Place, Promotion. Where does your customer already spend attention? Start with one channel you can test for $0 this week, then measure." },
-    { k: ['pitch', 'deck', 'slide', 'present', 'story', 'investor'], r: "Srinivas Maram's Day 3 structure: <b>Hook → Story → Ask</b>. Deck order: Intro, Problem, Solution, Market Size, Business Model, GTM, Competitors, Team, Financials, The Ask. Want me to draft your 30-second hook?" },
-    { k: ['vc', 'vcs', 'demo day', 'simulation', 'simulate', 'practice', 'q&a'], r: "Entering <b>VC Simulation</b> mode. I'll play a Sierra Ventures partner. First question: <i>How big is this market really, and why are you the team to win it?</i> Answer in under 60 seconds." },
-    { k: ['immigrant', 'visa', 'family', 'background', 'first-gen', 'first gen'], r: "Your background is an asset, not a footnote. Founders who've navigated a new country spot gaps others miss. Mr. Saxena said it best at Demo Day: he went from <b>nothing → something → everything</b>. Let's turn that lived experience into your unfair advantage." },
-    { k: ['module', 'lesson', 'learn', 'course', 'curriculum'], r: "There are <b>16 modules</b>: from problem identification and business models through financial modeling, marketing, and investor relations. Each has a video, a guided reading, and a quiz. Want me to recommend where to start?" },
-    { k: ['thank', 'thanks'], r: "Anytime. That's what co-founders are for. Keep building — I'll be here between sessions." },
-    { k: ['hello', 'hi', 'hey'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've been trained on every mentor session from the bootcamp. Want to start with your <b>problem statement</b>, your <b>finances</b>, or your <b>pitch</b>?" },
+    { k: ['problem', 'idea', 'ideation', 'solution'], r: "Let's use the <b>Problem → Solution</b> framework from Workshop 1 with Rithvik. First: who has this problem, how often, and what do they do about it today? Answer those three and your solution almost writes itself." },
+    { k: ['customer', 'persona', 'audience', 'target'], r: "Good, customer clarity is where most Workshop 1 teams got stuck. Describe <b>one</b> person who has this problem: their age, where they live, what they do on a Saturday. Build for that person first, then widen." },
+    { k: ['price', 'pricing', 'cost', 'finance', 'financial', 'burn', 'runway', 'revenue', 'profit', 'money', 'budget'], r: "From Workshop 2 (Finance &amp; Marketing): split your costs into <b>fixed</b> (things you pay no matter what) and <b>variable</b> (things that grow with each sale). Then price so one sale covers its variable cost with room left over. What does one unit cost you to deliver?" },
+    { k: ['market', 'marketing', '4p', '4ps', 'promotion', 'go-to-market', 'gtm', 'social media', 'instagram'], r: "Let's build your marketing plan with the <b>4 Ps</b>: Product, Price, Place, Promotion. Where does your customer already spend time? Start there with one channel instead of five." },
+    { k: ['pitch', 'deck', 'slide', 'present', 'story', 'investor'], r: "Sri's Workshop 3 structure: <b>Hook → Story → Ask</b>. Deck order: Problem, Solution, Customer, Business Model, Numbers, Team, Ask. Judges score idea, financial plan, and delivery, so give each one a slide that proves it." },
+    { k: ['vc', 'vcs', 'demo day', 'simulation', 'simulate', 'practice', 'q&a', 'prep'], r: "Entering <b>VC prep</b> mode. I'll play an early-stage investor like the one the top 3 teams met. First question: <i>How many people have this problem, and how do you know?</i>" },
+    { k: ['immigrant', 'visa', 'family', 'background', 'first-gen', 'first gen', 'parents'], r: "Your background is an asset, not a footnote. Founders who have watched a family start over spot gaps others miss, and that story belongs in your pitch. What did your family have to figure out that nobody taught them?" },
+    { k: ['module', 'lesson', 'learn', 'course', 'curriculum', 'first', 'begin'], r: "Follow the workshop order: <b>1. Problem &amp; Solution</b>, <b>2. Finance &amp; Marketing</b>, <b>3. Pitch Development</b>. Each one builds on the last, the same way a real business gets built. Tell me where you are and I'll pick up from there." },
+    { k: ['thank', 'thanks'], r: "Anytime. That's what co-founders are for. Keep building, and I'll be here between Saturdays." },
+    { k: ['hello', 'hi', 'hey'], r: "Hey founder! I'm <b>Venture.bot</b>, your AI co-founder. I've learned from every Roots to Ventures workshop. Want to start with your <b>problem</b>, your <b>numbers</b>, or your <b>pitch</b>?" },
   ];
   const FALLBACK = [
     "Interesting. Let's sharpen it: who feels this most, and what would they pay to make it go away?",
