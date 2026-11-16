@@ -203,19 +203,72 @@
     const scope = chat.closest('.phone-screen') || chat.parentElement;
     const body = chat.classList.contains('chat-body') ? chat : $('.chat-body', scope), form = $('.chat-input', scope), input = $('input', form);
     const stamp = () => new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+    const escapeHTML = text => String(text).replace(/[&<>"']/g, char => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[char]));
+    const formatReply = text => {
+      let html = '', inList = false;
+      text.split(/\r?\n/).forEach(line => {
+        const item = line.match(/^(?:- |1\. )(.*)$/);
+        if (item) {
+          if (!inList) { html += '<ul>'; inList = true; }
+          html += `<li>${escapeHTML(item[1]).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
+        } else {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `${escapeHTML(line).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}<br>`;
+        }
+      });
+      if (inList) html += '</ul>';
+      return html;
+    };
+    const plainText = html => {
+      const node = document.createElement('div');
+      node.innerHTML = html;
+      return node.textContent || '';
+    };
     const add = (html, who) => {
       const m = document.createElement('div'); m.className = 'msg ' + who; m.innerHTML = html + `<span class="stamp">${stamp()}</span>`;
       body.appendChild(m); body.scrollTop = body.scrollHeight; return m;
     };
-    const reply = text => {
-      const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop = body.scrollHeight;
+    const history = [];
+    let pending = Promise.resolve();
+    const kbReply = text => {
       const low = text.toLowerCase();
       const has = k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}${k.length > 3 ? '(?:e?s)?' : ''}(?![a-z0-9])`).test(low);
       const hit = KB.find(e => e.k.some(has));
-      const r = hit ? hit.r : FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
-      setTimeout(() => { t.remove(); add(r, 'bot'); }, 900 + Math.min(1400, r.length * 6));
+      return hit ? hit.r : FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
     };
-    const send = text => { if (!text.trim()) return; add(text.replace(/</g, '&lt;'), 'me'); input.value = ''; reply(text); };
+    const reply = async text => {
+      const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop = body.scrollHeight;
+      history.push({ role: 'user', content: text });
+      let html, responseText;
+      try {
+        if (location.protocol === 'file:') throw new Error('No API from file pages');
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history.slice(-20), mode: null }),
+        });
+        if (!response.ok) throw new Error('Chat request failed');
+        const data = await response.json();
+        if (typeof data.reply !== 'string' || !data.reply.trim()) throw new Error('Invalid chat response');
+        responseText = data.reply;
+        html = formatReply(responseText);
+      } catch (error) {
+        html = kbReply(text);
+        responseText = plainText(html);
+      }
+      t.remove();
+      add(html, 'bot');
+      history.push({ role: 'assistant', content: responseText });
+    };
+    const send = text => {
+      if (!text.trim()) return;
+      const message = text.trim();
+      add(escapeHTML(message), 'me');
+      input.value = '';
+      pending = pending.then(() => reply(message));
+    };
     form.addEventListener('submit', e => { e.preventDefault(); send(input.value); });
     $$('.chip', chat.closest('section') || document).forEach(c => c.addEventListener('click', () => send(c.dataset.prompt || c.textContent)));
 
