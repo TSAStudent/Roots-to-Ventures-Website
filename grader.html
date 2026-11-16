@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Plan Grader — Venture.bot | Roots to Ventures</title>
+<meta name="description" content="Answer 8 questions about your business and Venture.bot grades your plan out of 10 in six categories, with honest feedback and next steps.">
+<meta property="og:title" content="Business Plan Grader — Venture.bot | Roots to Ventures">
+<meta property="og:description" content="Answer 8 questions about your business and Venture.bot grades your plan out of 10 in six categories, with honest feedback and next steps.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1024 1024%22%3E%3Crect width=%221024%22 height=%221024%22 rx=%22230%22 fill=%22%2315423d%22/%3E%3Cg transform=%22translate(-32 -34)%22 fill=%22none%22 stroke-width=%2226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M533 448V682%22 stroke=%22%23ffffff%22/%3E%3Cpath d=%22M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828%22 stroke=%22%23ce7942%22/%3E%3Cpath d=%22M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z%22 fill=%22%23ffffff%22 stroke=%22none%22/%3E%3Cpath d=%22M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z%22 fill=%22%2395ae53%22 stroke=%22none%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/venturebot.css">
+<noscript><style>.reveal, .reveal-words .w span { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<div class="scroll-progress"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Roots to Ventures home">
+      <span class="brand-mark"><svg viewBox="222 224 644 644" fill="none" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M533 448V682" stroke="#15423d"/><path d="M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828" stroke="#ce7942"/><path d="M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z" fill="#15423d" stroke="none"/><path d="M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z" fill="#95ae53" stroke="none"/></svg></span>
+      <span class="brand-text"><small>Roots to</small>Ventures</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="program.html">Program</a>
+      <a href="venture-bot.html" class="active">Venture.bot</a>
+      <a href="impact.html">Impact</a>
+      <a href="team.html">Team &amp; Mentors</a>
+      <a href="apply.html">Apply</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="venture-bot.html">Try Venture.bot</a>
+      <a class="btn btn-primary" href="apply.html">Join Us Today! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="glow"></div><div class="glow amber"></div>
+  <div class="container">
+    <div class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span><a href="venture-bot.html">Venture.bot</a><span>/</span><span>Plan Grader</span></div>
+    <span class="eyebrow reveal" style="margin-top:28px">Venture.bot Plan Grader</span>
+    <h1 class="display h-xl reveal-words">Get your business plan <em>graded</em> before the judges do.</h1>
+    <p class="lead reveal" data-delay="2">Answer 8 questions about your venture. Venture.bot scores your plan out of 10 in six categories built from our Pitch Day rubric, then tells you exactly what to fix.</p>
+  </div>
+</section>
+
+<section class="section vb-section">
+  <div class="container">
+    <div class="pg" data-grader>
+      <div class="pg-quiz" data-pg-quiz>
+        <aside class="pg-side">
+          <div class="pg-side-head"><b>Your plan</b><span data-pg-count>0 of 8 answered</span></div>
+          <div class="pg-bar"><i data-pg-bar></i></div>
+          <ol class="pg-steps" data-pg-steps></ol>
+          <button class="pg-sample" type="button" data-pg-sample><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9.5l-4.7 1.9L12 16l-1.8-4.6L5.5 9.5l4.7-1.9z"/></svg>Fill in a sample plan</button>
+        </aside>
+        <div class="pg-card">
+          <span class="pg-q-num" data-pg-num>Question 1 of 8</span>
+          <h2 class="pg-q" data-pg-q></h2>
+          <p class="pg-hint" data-pg-hint></p>
+          <textarea class="pg-input" data-pg-input rows="7" maxlength="1500" placeholder="Type your answer…"></textarea>
+          <div class="pg-meta"><span data-pg-words>0 words</span><span>Be specific: names, numbers and evidence score higher.</span></div>
+          <p class="pg-error" data-pg-error hidden></p>
+          <div class="pg-nav">
+            <button class="btn btn-ghost" type="button" data-pg-back>Back</button>
+            <button class="btn btn-primary" type="button" data-pg-next>Next question</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg-loading" data-pg-loading hidden>
+        <div class="pg-spinner"></div>
+        <h3>Grading your plan…</h3>
+        <p data-pg-loading-text>Reading your answers</p>
+      </div>
+
+      <div class="pg-results" data-pg-results hidden>
+        <div class="pg-res-head">
+          <div><span class="eyebrow">Plan report</span><h2 class="display h-lg" data-pg-title>Your business plan</h2></div>
+          <div class="btn-group">
+            <button class="btn btn-ghost" type="button" data-pg-edit>Edit answers</button>
+            <a class="btn btn-primary" href="chat.html?mode=plan">Improve it with Venture.bot</a>
+          </div>
+        </div>
+
+        <div class="pg-row pg-row-top">
+          <div class="pg-panel pg-scores">
+            <div class="pg-panel-label">Quantitative scoring</div>
+            <div class="pg-scores-in">
+              <div class="pg-overall" data-pg-overall></div>
+              <div class="pg-rings" data-pg-rings></div>
+            </div>
+          </div>
+          <div class="pg-panel pg-compare">
+            <div class="pg-panel-label">Score comparison</div>
+            <div class="pg-curve" data-pg-curve></div>
+            <p class="pg-curve-text" data-pg-curve-text></p>
+          </div>
+        </div>
+
+        <div class="pg-panel pg-feedback">
+          <div class="pg-fb-grid">
+            <div><h4>Overall feedback</h4><p data-pg-fb-overall></p></div>
+            <div><h4>Brutally honest feedback</h4><p data-pg-fb-honest></p></div>
+            <div><h4>What's working</h4><ul data-pg-fb-strengths></ul></div>
+            <div><h4>Suggestions</h4><ol data-pg-fb-suggest></ol></div>
+          </div>
+        </div>
+
+        <h3 class="pg-sub">Category breakdown</h3>
+        <div class="pg-cats" data-pg-cats></div>
+
+        <h3 class="pg-sub">Line-by-line comments</h3>
+        <div class="pg-lines" data-pg-lines></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p class="big">Roots to Ventures</p>
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="222 224 644 644" fill="none" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M533 448V682" stroke="#15423d"/><path d="M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828" stroke="#ce7942"/><path d="M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z" fill="#15423d" stroke="none"/><path d="M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z" fill="#95ae53" stroke="none"/></svg></span><span class="brand-text"><small>Roots to</small>Ventures</span></a>
+        <p style="color:var(--muted);margin-top:18px;max-width:34ch;font-size:0.95rem">A free entrepreneurship program for first-generation immigrant high school students in Dallas–Fort Worth. Real mentors, a real stage, and an AI co-founder.</p>
+      </div>
+      <div>
+        <h4>Program</h4>
+        <ul>
+          <li><a href="program.html">The Workshops</a></li>
+          <li><a href="program.html#pitch-day">Pitch Day &amp; VC Meeting</a></li>
+          <li><a href="venture-bot.html">Venture.bot</a></li>
+          <li><a href="impact.html">Impact Report</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>People</h4>
+        <ul>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="team.html#mentors">Mentors &amp; Judges</a></li>
+          <li><a href="team.html#sponsors">Sponsors</a></li>
+          <li><a href="impact.html#quotes">Student stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="apply.html">Apply as a student</a></li>
+          <li><a href="apply.html#mentor">Become a mentor</a></li>
+          <li><a href="apply.html#partner">Sponsor a cohort</a></li>
+          <li><a href="mailto:hello@rootstoventures.org">hello@rootstoventures.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Roots to Ventures · Irving, Texas</span>
+      <span>Your roots are the soil you grow from.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/venturebot.js"></script>
+</body>
+</html>

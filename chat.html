@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venture.bot Chat — Roots to Ventures</title>
+<meta name="description" content="Chat with Venture.bot, the AI co-founder from Roots to Ventures. Coaching on problems, pricing, marketing, pitches and VC questions.">
+<meta property="og:title" content="Venture.bot Chat — Roots to Ventures">
+<meta property="og:description" content="Chat with Venture.bot, the AI co-founder from Roots to Ventures. Coaching on problems, pricing, marketing, pitches and VC questions.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1024 1024%22%3E%3Crect width=%221024%22 height=%221024%22 rx=%22230%22 fill=%22%2315423d%22/%3E%3Cg transform=%22translate(-32 -34)%22 fill=%22none%22 stroke-width=%2226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M533 448V682%22 stroke=%22%23ffffff%22/%3E%3Cpath d=%22M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828%22 stroke=%22%23ce7942%22/%3E%3Cpath d=%22M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z%22 fill=%22%23ffffff%22 stroke=%22none%22/%3E%3Cpath d=%22M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z%22 fill=%22%2395ae53%22 stroke=%22none%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/venturebot.css">
+<noscript><style>.reveal, .reveal-words .w span { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<div class="scroll-progress"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Roots to Ventures home">
+      <span class="brand-mark"><svg viewBox="222 224 644 644" fill="none" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M533 448V682" stroke="#15423d"/><path d="M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828" stroke="#ce7942"/><path d="M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z" fill="#15423d" stroke="none"/><path d="M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z" fill="#95ae53" stroke="none"/></svg></span>
+      <span class="brand-text"><small>Roots to</small>Ventures</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="program.html">Program</a>
+      <a href="venture-bot.html" class="active">Venture.bot</a>
+      <a href="impact.html">Impact</a>
+      <a href="team.html">Team &amp; Mentors</a>
+      <a href="apply.html">Apply</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="venture-bot.html">Try Venture.bot</a>
+      <a class="btn btn-primary" href="apply.html">Join Us Today! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="glow"></div><div class="glow amber"></div>
+  <div class="container">
+    <div class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span><a href="venture-bot.html">Venture.bot</a><span>/</span><span>Chat</span></div>
+    <span class="eyebrow reveal" style="margin-top:28px">Venture.bot chat</span>
+    <h1 class="display h-xl reveal-words">Your AI <em>co-founder</em>, on call between Saturdays.</h1>
+    <p class="lead reveal" data-delay="2">Ask about your idea, your numbers or your pitch. Venture.bot knows all three workshops and coaches you the way our mentors do: honest, specific and one question at a time.</p>
+    <div class="btn-group reveal" data-delay="3"><a class="btn btn-primary" href="grader.html">Grade my business plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="section vb-section">
+  <div class="container">
+    <div class="vb-app" data-vb-chat>
+      <aside class="vb-side">
+        <div class="vb-side-brand"><div class="vb-logo">V</div><div><b>Venture.bot</b><span>AI co-founder</span></div></div>
+        <button class="vb-new" type="button" data-vb-new><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>New chat</button>
+        <div class="vb-side-label">Coaching modes</div>
+        <nav class="vb-modes">
+          <button class="vb-mode active" type="button" data-mode="" data-name="General coach" data-desc="Ask anything about your venture"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span><b>General coach</b><small>Ask anything about your venture</small></span></button>
+          <button class="vb-mode" type="button" data-mode="idea" data-name="Idea Lab" data-desc="Find a problem worth solving"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 5-3 6v3H8v-3c-1-1-3-3-3-6a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></span><span><b>Idea Lab</b><small>Find a problem worth solving</small></span></button>
+          <button class="vb-mode" type="button" data-mode="plan" data-name="Plan Builder" data-desc="Pricing, costs and marketing"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><span><b>Plan Builder</b><small>Pricing, costs and marketing</small></span></button>
+          <button class="vb-mode" type="button" data-mode="pitch" data-name="Pitch Coach" data-desc="Structure and sharpen your pitch"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg></span><span><b>Pitch Coach</b><small>Structure and sharpen your pitch</small></span></button>
+          <button class="vb-mode" type="button" data-mode="vc" data-name="VC Simulator" data-desc="Face tough investor questions"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><b>VC Simulator</b><small>Face tough investor questions</small></span></button>
+        </nav>
+        <a class="vb-side-card" href="grader.html">
+          <span class="vb-side-card-tag">New</span>
+          <b>Business Plan Grader</b>
+          <small>Answer 8 questions and get scored in 6 categories.</small>
+        </a>
+        <div class="vb-side-foot">Trained on 3 workshops<br><span>Problem &amp; Solution · Finance &amp; Marketing · Pitch</span></div>
+      </aside>
+      <div class="vb-main">
+        <div class="vb-top">
+          <div class="vb-top-title"><span class="vb-dot"></span><b data-vb-mode-name>General coach</b><span data-vb-mode-desc>Ask anything about your venture</span></div>
+        </div>
+        <div class="vb-thread" data-vb-thread aria-live="polite"></div>
+        <form class="vb-compose" data-vb-form>
+          <textarea rows="1" placeholder="Message Venture.bot…" aria-label="Message Venture.bot"></textarea>
+          <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </form>
+        <p class="vb-note">Venture.bot can make mistakes. Check important numbers with a mentor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p class="big">Roots to Ventures</p>
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="222 224 644 644" fill="none" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M533 448V682" stroke="#15423d"/><path d="M533 690C530 742 470 764 395 828M533 690V838M533 690C536 742 598 764 672 828" stroke="#ce7942"/><path d="M352 390C452 391 506 446 522 492V541C428 543 362 482 352 390Z" fill="#15423d" stroke="none"/><path d="M533 465C537 332 632 258 736 252C736 384 660 461 533 465Z" fill="#95ae53" stroke="none"/></svg></span><span class="brand-text"><small>Roots to</small>Ventures</span></a>
+        <p style="color:var(--muted);margin-top:18px;max-width:34ch;font-size:0.95rem">A free entrepreneurship program for first-generation immigrant high school students in Dallas–Fort Worth. Real mentors, a real stage, and an AI co-founder.</p>
+      </div>
+      <div>
+        <h4>Program</h4>
+        <ul>
+          <li><a href="program.html">The Workshops</a></li>
+          <li><a href="program.html#pitch-day">Pitch Day &amp; VC Meeting</a></li>
+          <li><a href="venture-bot.html">Venture.bot</a></li>
+          <li><a href="impact.html">Impact Report</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>People</h4>
+        <ul>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="team.html#mentors">Mentors &amp; Judges</a></li>
+          <li><a href="team.html#sponsors">Sponsors</a></li>
+          <li><a href="impact.html#quotes">Student stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="apply.html">Apply as a student</a></li>
+          <li><a href="apply.html#mentor">Become a mentor</a></li>
+          <li><a href="apply.html#partner">Sponsor a cohort</a></li>
+          <li><a href="mailto:hello@rootstoventures.org">hello@rootstoventures.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Roots to Ventures · Irving, Texas</span>
+      <span>Your roots are the soil you grow from.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/venturebot.js"></script>
+</body>
+</html>
