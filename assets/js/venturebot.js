@@ -155,7 +155,10 @@
     });
     el('back').addEventListener('click', () => go(cur - 1));
     el('next').addEventListener('click', () => (cur === QUESTIONS.length - 1 ? grade() : go(cur + 1)));
-    el('sample').addEventListener('click', () => { answers = { ...SAMPLE }; save(); go(cur); });
+    el('sample').addEventListener('click', () => {
+      if (Object.values(answers).some(v => (v || '').trim()) && !confirm('Replace your answers with the sample plan?')) return;
+      answers = { ...SAMPLE }; save(); go(cur);
+    });
     el('edit').addEventListener('click', () => { el('results').hidden = true; el('quiz').hidden = false; go(0); grader.scrollIntoView({ behavior: 'smooth' }); });
 
     const color = s => s >= 8 ? '#6f9a3b' : s >= 6 ? '#e2a72e' : s >= 4 ? '#ce7942' : '#c8553d';
