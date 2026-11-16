@@ -274,6 +274,7 @@
 
     // Intro script
     const intro = JSON.parse(chat.dataset.intro || '[]');
+    intro.forEach(([who, html]) => history.push({ role: who === 'bot' ? 'assistant' : 'user', content: plainText(html) }));
     let delay = 600;
     intro.forEach(([who, html]) => {
       setTimeout(() => {
