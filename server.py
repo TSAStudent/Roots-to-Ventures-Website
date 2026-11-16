@@ -1,10 +1,11 @@
 import argparse
 import json
 import os
+import posixpath
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "api"))
@@ -36,6 +37,26 @@ def load_dotenv():
 class VentureBotHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
+
+    def _blocked_static_path(self):
+        path = unquote(urlsplit(self.path).path)
+        segments = [segment for segment in path.split("/") if segment]
+        if any(segment.startswith(".") for segment in segments):
+            return True
+        path = posixpath.normpath("/" + "/".join(segments))
+        return path in ("/server.py", "/README.md", "/api") or path.startswith("/api/")
+
+    def do_GET(self):
+        if self._blocked_static_path():
+            self.send_error(404)
+            return
+        super().do_GET()
+
+    def do_HEAD(self):
+        if self._blocked_static_path():
+            self.send_error(404)
+            return
+        super().do_HEAD()
 
     def _json_response(self, status, payload):
         encoded = json.dumps(payload).encode("utf-8")
